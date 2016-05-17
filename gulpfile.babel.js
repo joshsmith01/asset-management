@@ -47,7 +47,7 @@ function copy() {
 
 // Copy page templates into finished HTML files
 function pages() {
-  return gulp.src('src/pages/**/*.{html,hbs,handlebars}')
+  return gulp.src('src/pages/**/*.{php,html,hbs,handlebars}')
     .pipe(panini({
       root: 'src/pages/',
       layouts: 'src/layouts/',
@@ -118,7 +118,8 @@ function images() {
 // Start a server with BrowserSync to preview the site in
 function server(done) {
   browser.init({
-    server: PATHS.dist, port: PORT
+//     server: PATHS.dist, port: PORT
+    proxy: "http://asset-management/", port: 8000
   });
   done();
 }
@@ -127,7 +128,9 @@ function server(done) {
 function watch() {
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/pages/**/*.html').on('change', gulp.series(pages, browser.reload));
+  gulp.watch( 'src/pages/**/*.php' ).on( 'change', gulp.series( pages, browser.reload ) );
   gulp.watch('src/{layouts,partials}/**/*.html').on('change', gulp.series(resetPages, pages, browser.reload));
+  gulp.watch( 'src/{layouts,partials}/**/*.php' ).on( 'change', gulp.series( resetPages, pages, browser.reload ) );
   gulp.watch('src/assets/scss/**/*.scss', sass);
   gulp.watch('src/assets/js/**/*.js').on('change', gulp.series(javascript, browser.reload));
   gulp.watch('src/assets/img/**/*').on('change', gulp.series(images, browser.reload));
