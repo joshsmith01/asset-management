@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="medium-6 medium-centered large-4 large-centered columns">
 
-		<form action="login.php" method="post">
+		<form action="assets/php/register-action.php" method="post">
 			<div class="row column log-in-form">
 				<h4 class="text-center">Register for Asset Management</h4>
 				<label for="emp-first-name">First Name
@@ -22,7 +22,7 @@
 				<label for="emp-password-confirm">Confirm Password
 					<input type="text" placeholder="Password" id="emp-password-confirm" name="emp-password-confirm">
 				</label>
-				<input type="submit" class="button expanded" name="login" value="Register">
+				<input type="submit" class="button expanded" name="register" value="Register">
 			</div>
 		</form>
 
