@@ -54,11 +54,10 @@ if ( isset( $_POST['login'] ) ) {
 		//If $validPassword is TRUE, the login has been successful.
 		if ( $validPassword ) {
 
-			// TODO: Verify the session associative array that the is part of the session. -JMS
 			//Provide the user with a login session.
 			$_SESSION['user_id']   = $user['email'];
 			$_SESSION['logged_in'] = time();
-			
+
 			//Redirect to our protected page, which we called home.php
 			header( 'Location: /' );
 			exit;
