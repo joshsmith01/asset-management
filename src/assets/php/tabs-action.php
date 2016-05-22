@@ -7,5 +7,3 @@
  */
 
 
-echo $_SESSION['user_id'];
-echo 'Hi from tabs-action!';
