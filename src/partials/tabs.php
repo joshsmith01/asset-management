@@ -5,7 +5,7 @@ require 'assets/php/tabs-action.php';
 <div class="row small-12 columns">
 
     <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Users</a></li>
+        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Employees</a></li>
         <?php
 
         if ( $_SESSION['role_id'] >= 2 ) {
@@ -16,6 +16,7 @@ require 'assets/php/tabs-action.php';
 
                 echo '<li class="tabs-title"><a href="#panel3">Assets</a></li>';
                 echo '<li class="tabs-title"><a href="#panel4">Inventory</a></li>';
+                echo '<li class="tabs-title"><a href="#panel5">Category</a></li>';
             }
         }
         ?>
@@ -23,26 +24,25 @@ require 'assets/php/tabs-action.php';
 
     <div class="tabs-content" data-tabs-content="example-tabs">
         <div class="tabs-panel is-active" id="panel1">
-            <p>Users</p>
-            <p>Add New users and update existing users</p>
-            <p>hi from the p tag</p>
+            {{> employee-create}}
         </div>
 
 
         <?php
         if ( $_SESSION['role_id'] >= 2 ) { ?>
             <div class="tabs-panel" id="panel2">
-                <p>Companies</p>
-                <p>Add New companies and update existing companies</p>
+                {{> company-create}}
             </div>
             <?php if ( $_SESSION['role_id'] >= 3 ) { ?>
                 <div class="tabs-panel" id="panel3">
-                    <p>Assets</p>
-                    <p>Add New assets and update existing assets</p>
+                    {{> asset-create}}
                 </div>
                 <div class="tabs-panel" id="panel4">
                     <p>Inventory</p>
                     <p>Assign Inventory to Users</p>
+                </div>
+                <div class="tabs-panel" id="panel5">
+                    {{> category-create}}
                 </div>
             <?php
                 }
