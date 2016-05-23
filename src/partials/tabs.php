@@ -24,11 +24,8 @@ require 'assets/php/tabs-action.php';
 
     <div class="tabs-content" data-tabs-content="example-tabs">
         <div class="tabs-panel is-active" id="panel1">
-            <p>Display Inventory</p>
-            <p>Assign Inventory to Users</p>
+            {{> inventory-display}}
         </div>
-
-
         <?php
         if ( $_SESSION['role_id'] >= 2 ) { ?>
             <div class="tabs-panel" id="panel2">
