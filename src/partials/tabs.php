@@ -5,18 +5,18 @@ require 'assets/php/tabs-action.php';
 <div class="row small-12 columns">
 
     <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Employees</a></li>
+        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Display Inventory</a></li>
         <?php
 
         if ( $_SESSION['role_id'] >= 2 ) {
 
-            echo '<li class="tabs-title"><a href="#panel2">Companies</a></li>';
-
+            echo '<li class="tabs-title"><a href="#panel2">Create Manufacturer</a></li>';
+            echo '<li class="tabs-title"><a href="#panel3">Create Category</a></li>';
+            echo '<li class="tabs-title"><a href="#panel4">Create Assets</a></li>';
+            echo '<li class="tabs-title"><a href="#panel5">Create Employee</a></li>';
             if ( $_SESSION['role_id'] >= 3 ) {
 
-                echo '<li class="tabs-title"><a href="#panel3">Assets</a></li>';
-                echo '<li class="tabs-title"><a href="#panel4">Inventory</a></li>';
-                echo '<li class="tabs-title"><a href="#panel5">Category</a></li>';
+                echo '<li class="tabs-title"><a href="#panel6">Assign Assets</a></li>';
             }
         }
         ?>
@@ -24,7 +24,8 @@ require 'assets/php/tabs-action.php';
 
     <div class="tabs-content" data-tabs-content="example-tabs">
         <div class="tabs-panel is-active" id="panel1">
-            {{> employee-create}}
+            <p>Display Inventory</p>
+            <p>Assign Inventory to Users</p>
         </div>
 
 
@@ -33,17 +34,21 @@ require 'assets/php/tabs-action.php';
             <div class="tabs-panel" id="panel2">
                 {{> company-create}}
             </div>
+            <div class="tabs-panel" id="panel3">
+                {{> category-create}}
+            </div>
+            <div class="tabs-panel" id="panel4">
+                {{> asset-create}}
+            </div>
+            <div class="tabs-panel " id="panel5">
+                {{> employee-create}}
+            </div>
             <?php if ( $_SESSION['role_id'] >= 3 ) { ?>
-                <div class="tabs-panel" id="panel3">
-                    {{> asset-create}}
+
+                <div class="tabs-panel " id="panel6">
+                    <p>assign assets to employees</p>
                 </div>
-                <div class="tabs-panel" id="panel4">
-                    <p>Inventory</p>
-                    <p>Assign Inventory to Users</p>
-                </div>
-                <div class="tabs-panel" id="panel5">
-                    {{> category-create}}
-                </div>
+
             <?php
                 }
             }
