@@ -32,6 +32,7 @@ require 'assets/php/tabs-action.php';
                 {{> company-create}}
             </div>
             <div class="tabs-panel" id="panel3">
+                
                 {{> category-create}}
             </div>
             <div class="tabs-panel" id="panel4">

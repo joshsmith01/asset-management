@@ -7,16 +7,18 @@
  */
 
 
+
 ?>
+
+
 <div class="row" >
 	<div class="large-12 columns" >
 		<p > Add Asset Categories here!</p >
 		<div class="signup-panel" >
-			<! -- TODO: send this form to a script that adds new categories to the db . - JMS -->
-			<form action = "" >
+			<form action = "../assets/php/category-create-action.php"  method="post" >
 				<div class="row" >
 					<div class="small-12 medium-10 columns small-centered" >
-						<input type = "text" placeholder = "Category Name" >
+						<input type = "text" name="category-create-category" placeholder = "Category Name" >
 					</div >
 				</div >
 
@@ -29,3 +31,10 @@
 		</div >
 	</div >
 </div >
+
+
+<?php
+// Path to the action script is relative to the dist folder. -JMS
+require 'assets/php/category-display-action.php'
+
+?>
