@@ -29,7 +29,7 @@ require 'assets/php/tabs-action.php';
         <?php
         if ( $_SESSION['role_id'] >= 2 ) { ?>
             <div class="tabs-panel" id="panel2">
-                {{> company-create}}
+                {{> manufacturer-create}}
             </div>
             <div class="tabs-panel" id="panel3">
                 
