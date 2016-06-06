@@ -44,7 +44,7 @@ require 'assets/php/tabs-action.php';
             <?php if ( $_SESSION['role_id'] >= 3 ) { ?>
 
                 <div class="tabs-panel " id="panel6">
-                    <p>assign assets to employees</p>
+                    {{> asset-assign}}
                 </div>
 
             <?php
