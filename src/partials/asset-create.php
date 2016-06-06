@@ -7,6 +7,12 @@
  */
 ?>
 
+<?php
+// Path to the action script is relative to the dist folder. -JMS
+require 'assets/php/asset-create-dropdown-action.php';
+?>
+
+
 <div class="row">
 	<div class="large-12 columns">
 		<p>Add all company assets here!</p>
@@ -15,17 +21,29 @@
 			<form action="../assets/php/asset-create-action.php" method="post">
 				<div class="row">
 					<div class="small-12 medium-10 columns small-centered">
-						<input type="text" placeholder="Asset Name">
+						<input type="text" name="asset-name" placeholder="Asset Name">
 					</div>
 				</div>
 				<div class="row">
 					<div class="small-12 medium-10 columns small-centered">
-						<input type="text" placeholder="Asset Category">
+						<select name="asset-category" title="asset-category">
+							<option value="">Select...</option>
+							<?php foreach ( $dataCat as $row ): ?>
+								<option value="<?= $row["category_id"] ?>"><?= ucwords( $row["category_name"] ) ?></option>
+							<?php endforeach ?>
+
+						</select>
 					</div>
 				</div>
 				<div class="row">
 					<div class="small-12 medium-10 columns small-centered">
-						<input type="text" placeholder="Asset Manufacturer">
+						<select type="text" name="asset-manufacturer" placeholder="Asset Manufacturer">
+							<option value="">Select...</option>
+							<?php foreach ( $dataMan as $row ): ?>
+								<option value="<?=  $row["manufacturer_id"]  ?>"><?= ucwords(  $row["name"] )?></option>
+							<?php endforeach ?>
+
+						</select>
 					</div>
 				</div>
 				<div class="row">
@@ -40,7 +58,7 @@
 
 <?php
 // Path to the action script is relative to the dist folder. -JMS
-require 'assets/php/asset-display-action.php'
+require 'assets/php/asset-display-action.php';
 
 ?>
 
