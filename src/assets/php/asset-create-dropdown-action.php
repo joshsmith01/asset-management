@@ -8,8 +8,7 @@
 
 
 // Make my dropdown statement for the database.
-// TODO: make the statement for the combo boxes to be populated by the database. -JMS
-// TODO: http://stackoverflow.com/questions/16812733/populating-dropdown-menu-through-pdo-code
+// REF: http://stackoverflow.com/questions/16812733/populating-dropdown-menu-through-pdo-code
 
 $smtCat = $pdo->prepare( "SELECT asset_categories.category_name, asset_categories.category_id FROM asset_categories" );
 
